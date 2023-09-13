@@ -1,0 +1,22 @@
+import java.util.*;
+class Reverse_EachWord_In_A_String{
+    public static void main(String [] args){
+        String str="Java Program";
+        String revStr="";
+
+        // Split the each word storing inthe array.
+        String [] words=str.split(" ");
+        for (String word:words){
+            String revword="";
+            //reverse the word
+            for(int i=word.length()-1;i>=0;i--){
+                revword+=word.charAt(i);
+            }
+            revStr+=revword+" ";
+        }   
+        System.out.println(revStr);
+    }
+}
+
+//Input:- Java Program
+//Output:- avaJ margorP
