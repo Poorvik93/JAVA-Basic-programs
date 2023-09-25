@@ -1,0 +1,11 @@
+public class RemoveWhiteSpace {
+    public static String removeSpaces(String str) {
+        return str.replaceAll("\\s", "");
+    }
+
+    public static void main(String[] args) {
+        String str = "  This is a test string with spaces.   ";
+        System.out.println("Original: " + str);
+        System.out.println("After removing spaces: " + removeSpaces(str));
+    }
+}
