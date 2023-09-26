@@ -1,0 +1,24 @@
+// Class definition named Array_string
+class Array_string {
+    // Main method, the entry point of the Java program
+    public static void main(String args[]) {
+        // Create an array 'words' to hold 3 strings
+        String[] words = new String[3];
+
+        // Assign values to elements of the 'words' array
+        words[0] = "Hello";
+        words[1] = "What";
+        words[2] = "When";
+
+        // Print the third element of the 'words' array
+        System.out.println(words[2]);
+
+        // Create an array 'fruits' with predefined values
+        String[] fruits = { "Apple", "Orange", "Banana" };
+
+        // Iterate through the 'fruits' array and print each fruit
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+    }
+}
