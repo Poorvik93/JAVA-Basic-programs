@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class PalindromeCuts {
+
+    // Function to calculate the minimum palindrome cuts
+    public static int minPalindromeCuts(String str) {
+        int n = str.length();
+        int[] minCuts = new int[n];
+        boolean[][] isPalindrome = new boolean[n][n];
+
+        for (int i = 0; i < n; i++) {
+            minCuts[i] = i;  // Maximum cuts for worst case is i
+            isPalindrome[i][i] = true;  // Single character is a palindrome
+        }
+
+        // Loop through the string to find palindromes and minimum cuts
+        for (int end = 1; end < n; end++) {
+            for (int start = end; start >= 0; start--) {
+                // Check if substring is a palindrome
+                if (str.charAt(start) == str.charAt(end) && (end - start < 2 || isPalindrome[start + 1][end - 1])) {
+                    isPalindrome[start][end] = true;  // Mark the substring as a palindrome
+                    minCuts[end] = (start == 0) ? 0 : Math.min(minCuts[end], minCuts[start - 1] + 1);  // Update minimum cuts
+                }
+            }
+        }
+
+        return minCuts[n - 1];  // Return the minimum cuts for the entire string
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the String: ");
+        String input = sc.next();  // Take user input for the string
+
+        int minCuts = minPalindromeCuts(input);  // Calculate minimum palindrome cuts
+        System.out.println("Minimum number of cuts: " + minCuts);  // Print the result
+    }
+}
