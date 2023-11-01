@@ -1,0 +1,26 @@
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Write {
+    public static void main(String args[]) {
+        try {
+            // Create a FileWriter object to write to the "p.txt" file
+            FileWriter writer = new FileWriter("p.txt");
+
+            // Write the first three lines of a poem
+            writer.write("Roses are red\nViolets are blue\nBooty");
+
+            // Append a line indicating the author of the poem
+            writer.append("\n(A poem by Bro)");
+
+            // Close the FileWriter to save and release system resources
+            writer.close();
+
+            // Print a success message if the file was written successfully
+            System.out.println("File 'p.txt' has been written successfully.");
+        } catch (IOException e) {
+            // Handle any exceptions that may occur during file operations
+            e.printStackTrace();
+        }
+    }
+}
